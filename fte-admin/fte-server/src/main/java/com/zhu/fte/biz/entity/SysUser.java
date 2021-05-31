@@ -30,7 +30,7 @@ public class SysUser extends Model<SysUser> {
     /**
      * 用户名
      */
-    @NotEmpty(message = "用户名不能为空2")
+    @NotEmpty(message = "用户名不能为空")
     private String name;
 
     /**

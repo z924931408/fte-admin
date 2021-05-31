@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
+
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 /**
@@ -14,6 +17,7 @@ import java.io.Serializable;
  * @author ZQJ
  * @since 2021-02-14
  */
+@Data
 public class SysRole extends Model<SysRole> {
 
     private static final long serialVersionUID = 1L;
@@ -22,11 +26,12 @@ public class SysRole extends Model<SysRole> {
      * 编号
      */
     @TableId(value = "id", type = IdType.INPUT)
-    private String id;
+    private Integer id;
 
     /**
      * 角色名称
      */
+    @NotEmpty(message = "角色名不能为空")
     private String name;
 
     /**
@@ -43,47 +48,6 @@ public class SysRole extends Model<SysRole> {
      * 是否删除 -1：已删除   0：正常
      */
     private Integer delStatus;
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getDelStatus() {
-        return delStatus;
-    }
-
-    public void setDelStatus(Integer delStatus) {
-        this.delStatus = delStatus;
-    }
 
     @Override
     protected Serializable pkVal() {

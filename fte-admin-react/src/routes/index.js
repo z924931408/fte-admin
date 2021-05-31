@@ -6,9 +6,10 @@ const SiderBar = lazy(() => import(/* webpackChunkName: "layout" */ '../componen
 const HeaderBar = lazy(() => import(/* webpackChunkName: "layout" */ '../components/layout/HeaderBar'));
 const Home = lazy(() => import(/* webpackChunkName: "home" */ '../pages/home/Home'));
 // const Connect = lazy(() => import(/* webpackChunkName: "connect" */ '../pages/user/connect/Connect'));
-const List = lazy(() => import(/* webpackChunkName: "userList" */ '../pages/user'));
+const List = lazy(() => import(/* webpackChunkName: "roleList" */ '../pages/user'));
 const Rich = lazy(() => import(/* webpackChunkName: "rich" */ '../pages/tool/rich/Rich'));
 const NotFind = lazy(() => import(/* webpackChunkName: "notFind" */ '../pages/notFind/NotFind'));
+const Role = lazy(() => import(/* webpackChunkName: "role" */ '../pages/role'));
 
 class Index extends React.Component {
 
@@ -24,7 +25,7 @@ class Index extends React.Component {
 
                             <Switch>
                                 <Route exact path="/" component={Home}/>
-                                {/*<Route path="/user/role" component={Connect}/>*/}
+                                <Route path="/system/role" component={Role}/>
                                 <Route path="/system/user" component={List}/>
                                 <Route path="/tool/rich" component={Rich}/>
                                 <Route component={NotFind}/>
