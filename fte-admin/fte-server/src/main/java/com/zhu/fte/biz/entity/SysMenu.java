@@ -40,7 +40,7 @@ public class SysMenu extends Model<SysMenu> {
     /**
      * 菜单url,类型：1.普通页面；2.嵌套完整外部页面；3.嵌套服务器页面
      */
-    private String keys;
+    private String url;
 
     /**
      * 授权(多个用逗号隔开，如：sys:user:add)
@@ -84,7 +84,7 @@ public class SysMenu extends Model<SysMenu> {
         "id=" + id +
         ", title=" + title +
         ", parentId=" + parentId +
-        ", key=" + keys +
+        ", url=" + url +
         ", accredit=" + accredit +
         ", type=" + types +
         ", icon=" + icon +

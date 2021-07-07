@@ -7,7 +7,7 @@
         <id column="id" property="id" />
         <result column="title" property="title" />
         <result column="parent_id" property="parentId" />
-        <result column="keys" property="keys" />
+        <result column="url" property="url" />
         <result column="accredit" property="accredit" />
         <result column="types" property="types" />
         <result column="icon" property="icon" />
@@ -18,7 +18,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, title, parent_id, keys, accredit, types, icon, order_num, create_time, del_status
+        id, title, parent_id, url, accredit, types, icon, order_num, create_time, del_status
     </sql>
 
 </mapper>
