@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
-import menuReducer from './../reducer';
+import menuReducer from '../../pages/menu/redux/reducer';
 import userReducer from '../../pages/user/redux/reducer'
 import roleReducer from '../../pages/role/redux/reducer'
 import thunk from "redux-thunk";

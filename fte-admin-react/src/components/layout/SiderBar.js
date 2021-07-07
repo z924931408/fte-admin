@@ -4,7 +4,7 @@ import {Icon, Layout, Menu} from 'antd';
 import menuConfig from '../../config/menuConfig';
 import logoURL from '../../images/logo.jpeg';
 import {connect} from 'react-redux';
-import {switchMenu} from '../../redux/action';
+import {switchMenu} from "../../pages/menu/redux/action";
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;

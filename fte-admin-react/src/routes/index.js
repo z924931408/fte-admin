@@ -10,6 +10,7 @@ const List = lazy(() => import(/* webpackChunkName: "roleList" */ '../pages/user
 const Rich = lazy(() => import(/* webpackChunkName: "rich" */ '../pages/tool/rich/Rich'));
 const NotFind = lazy(() => import(/* webpackChunkName: "notFind" */ '../pages/notFind/NotFind'));
 const Role = lazy(() => import(/* webpackChunkName: "role" */ '../pages/role'));
+const Menu = lazy(() => import(/* webpackChunkName: "menu" */ '../pages/menu'));
 
 class Index extends React.Component {
 
@@ -27,6 +28,8 @@ class Index extends React.Component {
                                 <Route exact path="/" component={Home}/>
                                 <Route path="/system/role" component={Role}/>
                                 <Route path="/system/user" component={List}/>
+
+                                <Route path="/system/menu" component={Menu}/>
                                 <Route path="/tool/rich" component={Rich}/>
                                 <Route component={NotFind}/>
                             </Switch>
