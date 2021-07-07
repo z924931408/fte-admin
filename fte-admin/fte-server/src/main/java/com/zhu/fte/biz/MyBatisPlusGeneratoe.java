@@ -24,7 +24,7 @@ public class MyBatisPlusGeneratoe {
                 //作者
                 .setAuthor("ZQJ")
                 //生成路径
-                .setOutputDir("D:\\MyExample\\My-project\\fte\\biz\\src\\main\\java")
+                .setOutputDir("C:\\Users\\Administrator\\Desktop\\fte-admin\\fte-admin\\fte-server\\src\\main\\java")
                 //文件覆盖
                 .setFileOverride(true)
                 //主键策略
@@ -41,9 +41,9 @@ public class MyBatisPlusGeneratoe {
         //设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.jdbc.Driver")
-                .setUrl("jdbc:mysql://127.0.0.1:3306/fteDb")
+                .setUrl("jdbc:mysql://127.0.0.1:3306/fteDb?serverTimezone=UTC")
                 .setUsername("root")
-                .setPassword("root924931408");
+                .setPassword("root");
 
         //3、策略配置globalConfiguration中
         StrategyConfig setConfig=new StrategyConfig();
@@ -52,7 +52,7 @@ public class MyBatisPlusGeneratoe {
                 //数据库表映射到实体的命名策略
                 .setNaming(NamingStrategy.underline_to_camel)
                 //生成的表
-                .setInclude("sys_user_role");
+                .setInclude("sys_menu");
 
         //4、包名策略配置
         PackageConfig pkConfig=new PackageConfig();

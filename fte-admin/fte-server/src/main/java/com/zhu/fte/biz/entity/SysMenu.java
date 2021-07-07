@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author ZQJ
- * @since 2021-02-14
+ * @since 2021-07-07
  */
 @Data
 public class SysMenu extends Model<SysMenu> {
@@ -30,7 +30,7 @@ public class SysMenu extends Model<SysMenu> {
     /**
      * 菜单名称
      */
-    private String name;
+    private String title;
 
     /**
      * 父菜单ID，一级菜单为0
@@ -40,7 +40,7 @@ public class SysMenu extends Model<SysMenu> {
     /**
      * 菜单url,类型：1.普通页面；2.嵌套完整外部页面；3.嵌套服务器页面
      */
-    private String url;
+    private String keys;
 
     /**
      * 授权(多个用逗号隔开，如：sys:user:add)
@@ -50,7 +50,7 @@ public class SysMenu extends Model<SysMenu> {
     /**
      * 类型：0.目录；1.菜单;2.按钮
      */
-    private Integer type;
+    private Integer types;
 
     /**
      * 菜单图标
@@ -82,11 +82,11 @@ public class SysMenu extends Model<SysMenu> {
     public String toString() {
         return "SysMenu{" +
         "id=" + id +
-        ", name=" + name +
+        ", title=" + title +
         ", parentId=" + parentId +
-        ", url=" + url +
+        ", key=" + keys +
         ", accredit=" + accredit +
-        ", type=" + type +
+        ", type=" + types +
         ", icon=" + icon +
         ", orderNum=" + orderNum +
         ", createTime=" + createTime +

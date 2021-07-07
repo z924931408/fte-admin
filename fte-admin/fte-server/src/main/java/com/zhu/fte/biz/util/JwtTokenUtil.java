@@ -1,5 +1,6 @@
 package com.zhu.fte.biz.util;
 
+import com.zhu.fte.biz.config.SessionUser;
 import com.zhu.fte.biz.security.Authority;
 import com.zhu.fte.biz.security.JwtAuthToken;
 import io.jsonwebtoken.Claims;
@@ -92,6 +93,7 @@ public class JwtTokenUtil implements Serializable {
                         authorities.add(new Authority((String) ((Map) object).get("authority")));
                     }
                 }
+                SessionUser.setUserName(username);
                 authentication = new UsernamePasswordAuthenticationToken(username, null, authorities);
             } else {
                 if(validateToken(token)){

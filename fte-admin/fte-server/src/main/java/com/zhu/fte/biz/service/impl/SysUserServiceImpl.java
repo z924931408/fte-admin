@@ -54,11 +54,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public Set<String> selectPermissionsByName(String userName) {
-        Set<String> menus=new HashSet<>();
-        List<SysMenu> sysMenus=sysMenuService.getUser(userName);
-        sysMenus.stream().filter(p->!StringUtils.isNullOrEmpty(p.getAccredit()))
-                .forEach(p->menus.add(p.getAccredit()));
-        return menus;
+
+        return null;
     }
 
     @Override
