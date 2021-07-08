@@ -3,6 +3,7 @@ package com.zhu.fte.biz.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mysql.cj.util.StringUtils;
 import com.zhu.fte.biz.common.constant.Constants;
+import com.zhu.fte.biz.common.http.RestResponse;
 import com.zhu.fte.biz.entity.SysMenu;
 import com.zhu.fte.biz.mapper.SysMenuMapper;
 import com.zhu.fte.biz.service.SysMenuService;
@@ -38,5 +39,20 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     @Override
     public List<SysMenu> getMenus() {
         return sysMenuMapper.selectList(null);
+    }
+
+    @Override
+    public RestResponse add(SysMenu sysMenu) {
+        return RestResponse.ok(sysMenuMapper.insert(sysMenu));
+    }
+
+    @Override
+    public RestResponse updata(SysMenu sysMenu) {
+        return RestResponse.ok(sysMenuMapper.updateById(sysMenu));
+    }
+
+    @Override
+    public RestResponse delete(String id) {
+        return RestResponse.ok(sysMenuMapper.deleteById(id));
     }
 }

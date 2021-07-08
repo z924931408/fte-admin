@@ -1,5 +1,6 @@
 package com.zhu.fte.biz.service;
 
+import com.zhu.fte.biz.common.http.RestResponse;
 import com.zhu.fte.biz.entity.SysMenu;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -17,4 +18,12 @@ public interface SysMenuService extends IService<SysMenu> {
     List<SysMenu> getUser(String userName);
 
     List<SysMenu> getMenus();
+
+    RestResponse add(SysMenu sysMenu);
+
+    RestResponse updata(SysMenu sysMenu);
+
+    RestResponse delete(String id);
+
+
 }
