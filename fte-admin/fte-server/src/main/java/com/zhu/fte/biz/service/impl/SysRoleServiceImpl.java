@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zhu.fte.biz.common.http.RestResponse;
 import com.zhu.fte.biz.entity.SysRole;
 import com.zhu.fte.biz.entity.SysUser;
+import com.zhu.fte.biz.entity.SysUserRole;
 import com.zhu.fte.biz.mapper.SysRoleMapper;
+import com.zhu.fte.biz.mapper.SysUserRoleMapper;
 import com.zhu.fte.biz.service.SysRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,9 @@ import java.util.List;
  */
 @Service
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
+
+    @Resource
+    private SysUserRoleMapper sysUserRoleMapper;
 
     @Resource
     private SysRoleMapper sysRoleMapper;
@@ -44,6 +49,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     @Override
     public RestResponse delete(int id){
+        sysUserRoleMapper.delete(new QueryWrapper<SysUserRole>().lambda().eq(SysUserRole::getRoleId,id));
         return RestResponse.ok(sysRoleMapper.deleteById(id));
     }
 
