@@ -102,7 +102,7 @@ class updateRoleModal extends React.Component {
                     >
                         {getFieldDecorator('name', {
                             rules: [{required: true, message: 'Please input your name!', whitespace: true}],
-                            initialValue: modalType === 'add' ? "" : editRoleValue.name != undefined ? editRoleValue.name : ''
+                            initialValue: modalType === 'add' ? "" : editRoleValue.name !== undefined ? editRoleValue.name : ''
                         })(<Input/>)}
                     </Form.Item>
 
@@ -115,7 +115,7 @@ class updateRoleModal extends React.Component {
                                     message: 'Please input your password!',
                                 },
                             ],
-                            initialValue: modalType === 'remark' ? "" : editRoleValue.remark != undefined ? editRoleValue.remark : ''
+                            initialValue: modalType === 'remark' ? "" : editRoleValue.remark !== undefined ? editRoleValue.remark : ''
                         })(<Input/>)}
                     </Form.Item>
 

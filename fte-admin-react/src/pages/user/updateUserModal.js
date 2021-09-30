@@ -124,7 +124,7 @@ class updateUserModal extends React.Component {
                     >
                         {getFieldDecorator('name', {
                             rules: [{required: true, message: 'Please input your name!', whitespace: true}],
-                            initialValue: modalType === 'add' ? "" : editUserValue.name != undefined ? editUserValue.name : ''
+                            initialValue: modalType === 'add' ? "" : editUserValue.name !== undefined ? editUserValue.name : ''
                         })(<Input/>)}
                     </Form.Item>
                     <Form.Item
@@ -139,7 +139,7 @@ class updateUserModal extends React.Component {
                     >
                         {getFieldDecorator('nickName', {
                             rules: [{required: true, message: 'Please input your nickname!', whitespace: true}],
-                            initialValue: modalType === 'add' ? "" : editUserValue.nickName != undefined ? editUserValue.nickName : ''
+                            initialValue: modalType === 'add' ? "" : editUserValue.nickName !== undefined ? editUserValue.nickName : ''
                         })(<Input/>)}
                     </Form.Item>
 
@@ -156,7 +156,7 @@ class updateUserModal extends React.Component {
                                 },
                             ],
 
-                            initialValue: modalType === 'add' ? "" : editUserValue.email != undefined ? editUserValue.email : ''
+                            initialValue: modalType === 'add' ? "" : editUserValue.email !== undefined ? editUserValue.email : ''
                         })(<Input/>)}
                     </Form.Item>
                     <Form.Item label="密码" hasFeedback>
@@ -170,7 +170,7 @@ class updateUserModal extends React.Component {
                                     validator: this.validateToNextPassword,
                                 },
                             ],
-                            initialValue: modalType === 'add' ? "" : editUserValue.password != undefined ? editUserValue.password : ''
+                            initialValue: modalType === 'add' ? "" : editUserValue.password !== undefined ? editUserValue.password : ''
                         })(<Input.Password/>)}
                     </Form.Item>
                     <Form.Item label="确认密码" hasFeedback>
@@ -184,7 +184,7 @@ class updateUserModal extends React.Component {
                                     validator: this.compareToFirstPassword,
                                 },
                             ],
-                            initialValue: modalType === 'add' ? "" : editUserValue.password != undefined ? editUserValue.password : ''
+                            initialValue: modalType === 'add' ? "" : editUserValue.password !== undefined ? editUserValue.password : ''
                         })(<Input.Password onBlur={this.handleConfirmBlur}/>)}
                     </Form.Item>
                 </Form>
