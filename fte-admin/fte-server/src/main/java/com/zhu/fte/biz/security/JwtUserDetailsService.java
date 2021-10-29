@@ -33,7 +33,8 @@ public class JwtUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("该用户不存在!");
         }
         Set<String> permissions = sysUserService.selectPermissionsByName(user.getName());
-        List<GrantedAuthority> grantedAuthorities=permissions.stream().map(Authority::new).collect(Collectors.toList());
-        return new JwtUserDetails(user.getName(), user.getPassword(), grantedAuthorities);
+//        List<GrantedAuthority> grantedAuthorities=permissions.stream().map(Authority::new).collect(Collectors.toList());
+//        return new JwtUserDetails(user.getName(), user.getPassword(), grantedAuthorities);
+        return new JwtUserDetails(user.getName(), user.getPassword(), null);
     }
 }
