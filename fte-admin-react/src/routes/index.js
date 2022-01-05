@@ -7,7 +7,7 @@ const HeaderBar = lazy(() => import(/* webpackChunkName: "layout" */ '../compone
 const Home = lazy(() => import(/* webpackChunkName: "home" */ '../pages/home/Home'));
 // const Connect = lazy(() => import(/* webpackChunkName: "connect" */ '../pages/user/connect/Connect'));
 const List = lazy(() => import(/* webpackChunkName: "roleList" */ '../pages/user'));
-const Rich = lazy(() => import(/* webpackChunkName: "rich" */ '../pages/tool/rich/Rich'));
+const Rich = lazy(() => import(/* webpackChunkName: "rich" */ '../pages/tool/rich'));
 const NotFind = lazy(() => import(/* webpackChunkName: "notFind" */ '../pages/notFind/NotFind'));
 const Role = lazy(() => import(/* webpackChunkName: "role" */ '../pages/role'));
 const Menu = lazy(() => import(/* webpackChunkName: "menu" */ '../pages/menu'));

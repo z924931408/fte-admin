@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom'
 import {Icon, Layout, Menu} from 'antd';
 import menuConfig from '../../config/menuConfig';
-import logoURL from '../../images/logo.jpeg';
+import logoURL from '../../images/logo.jpg';
 import {connect} from 'react-redux';
 import {switchMenu} from "../../pages/menu/redux/action";
 

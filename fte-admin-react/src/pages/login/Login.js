@@ -45,7 +45,7 @@ class Login extends React.Component {
                             rules: [{required: true, message: '请输入密码!'}],
                         })(
                             <Input prefix={<Icon type="lock" className='login-icon'/>} type="password"
-                                   placeholder="密码123"/>,
+                                   placeholder="密码admin"/>,
                         )}
                     </Form.Item>
                     <Form.Item>
