@@ -1,10 +1,8 @@
 package com.zhu.fte.biz.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.mysql.cj.util.StringUtils;
 import com.zhu.fte.biz.common.http.RestResponse;
 import com.zhu.fte.biz.common.req.LoginReq;
-import com.zhu.fte.biz.entity.SysMenu;
 import com.zhu.fte.biz.entity.SysUser;
 import com.zhu.fte.biz.mapper.SysUserMapper;
 import com.zhu.fte.biz.security.JwtAuthToken;
@@ -17,7 +15,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;

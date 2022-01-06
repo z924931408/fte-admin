@@ -1,26 +1,37 @@
 package com.zhu.fte.biz.common.enums;
 
-public enum HttpStatus implements status{
-    OK(200L,"OK"),
-    FAIL(400L,"Bad Request"),
-    PASSWORD_WRONG(408L,"User name or password wrong"),
-    PARAM_EXCEPTION(410L,"参数异常")
+import com.zhu.fte.biz.common.exception.BaseExceptionInterface;
+import org.springframework.util.StringUtils;
+
+public enum HttpStatus  implements BaseExceptionInterface {
+    OK("200","OK"),
+    NOT_FOUND("404", "未找到该资源!"),
+    BODY_NOT_MATCH("400","请求的数据格式不符!"),
+    INTERNAL_SERVER_ERROR("500", "服务器内部错误!"),
+    SERVER_BUSY("503","服务器正忙，请稍后再试!")
     ;
 
+    private String code;
 
-    private Long code;
-    private String message;
 
-    HttpStatus(Long code, String message) {
+    private String msg;
+
+
+
+    HttpStatus(String code, String msg) {
         this.code = code;
-        this.message = message;
+        this.msg = msg;
     }
 
-    public Long code(){
-        return this.code;
+    @Override
+    public String getCode() {
+        return code;
     }
 
-    public String message(){
-        return this.message;
+    @Override
+    public String getMsg() {
+        return msg;
     }
+
+
 }

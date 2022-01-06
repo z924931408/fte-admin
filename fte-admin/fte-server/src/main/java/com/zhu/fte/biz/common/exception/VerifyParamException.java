@@ -6,7 +6,7 @@ package com.zhu.fte.biz.common.exception;
  * @author ZJQ
  * @date 2021/5/29 17:13
  */
-public class VerifyParamException extends GlobalException{
+public class VerifyParamException extends BizException{
     //提示错误信息
     private String msg;
 
