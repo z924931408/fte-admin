@@ -1,5 +1,7 @@
 package com.zhu.fte.biz.common.exception;
 
+import com.zhu.fte.biz.common.enums.HttpStatus;
+
 /**
  * 业务异常类
  *
@@ -47,11 +49,13 @@ public class BizException extends RuntimeException{
         this.message = message;
     }
 
-    public BizException(String code, String message, Throwable cause) {
-        super(code, cause);
-        this.code = code;
-        this.message = message;
+    public BizException(HttpStatus httpStatus, String errorTip) {
+        super(getErrorMsg(httpStatus, errorTip));
+        this.code = httpStatus.getCode();
+        this.message = httpStatus.getMsg(errorTip);
     }
+
+
 
     public String getCode() {
         return code;
@@ -70,6 +74,9 @@ public class BizException extends RuntimeException{
     }
 
 
+    private static String getErrorMsg(HttpStatus httpStatus, String append) {
+        return String.format("错误码：%s。错误信息：%s", httpStatus.getCode(), httpStatus.getMsg(append));
+    }
 
     @Override
     public Throwable fillInStackTrace() {
