@@ -1,6 +1,8 @@
 package com.zhu.fte.biz.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zhu.fte.biz.common.enums.HttpStatus;
+import com.zhu.fte.biz.common.exception.BizException;
 import com.zhu.fte.biz.common.http.RestResponse;
 import com.zhu.fte.biz.common.req.LoginReq;
 import com.zhu.fte.biz.entity.SysUser;
@@ -56,7 +58,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     }
 
     @Override
-    public RestResponse login(LoginReq loginReq, HttpServletRequest request) {
+    public JwtAuthToken login(LoginReq loginReq, HttpServletRequest request) {
         String userName=loginReq.getUsername();
         String password=loginReq.getPassword();
         List<SysUser> sysUserList= sysUserMapper.selectList(new QueryWrapper<SysUser>().lambda()
@@ -64,14 +66,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         );
         SysUser sysUser=sysUserList.size()==0?null:sysUserList.get(0);
         if(sysUser==null){
-            return RestResponse.error("账户不存在");
+            throw  new BizException(HttpStatus.PASSWORD_NOT,"账户不存在！");
         }
         //后续需改成密码加密处理
         if(!Objects.equals(password,sysUser.getPassword())){
-            return RestResponse.error("密码错误");
+            throw  new BizException(HttpStatus.PASSWORD_NOT,"密码错误！");
+
         }
-        JwtAuthToken token= JwtTokenUtil.login(request,userName,password,authenticationManager);
-        return RestResponse.ok(token);
+        return JwtTokenUtil.login(request,userName,password,authenticationManager);
     }
 
     @Override
@@ -83,17 +85,17 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
 
     @Override
-    public RestResponse add(SysUser sysUser) {
-        return RestResponse.ok(sysUserMapper.insert(sysUser));
+    public void add(SysUser sysUser) {
+         sysUserMapper.insert(sysUser);
     }
 
     @Override
-    public RestResponse edit(SysUser sysUser) {
-        return RestResponse.ok( sysUserMapper.updateById(sysUser));
+    public void edit(SysUser sysUser) {
+        sysUserMapper.updateById(sysUser);
     }
 
     @Override
-    public RestResponse delete(int id) {
-        return RestResponse.ok(sysUserMapper.deleteById(id));
+    public void delete(int id) {
+        sysUserMapper.deleteById(id);
     }
 }

@@ -42,17 +42,17 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     }
 
     @Override
-    public RestResponse add(SysMenu sysMenu) {
-        return RestResponse.ok(sysMenuMapper.insert(sysMenu));
+    public void add(SysMenu sysMenu) {
+        sysMenuMapper.insert(sysMenu);
     }
 
     @Override
-    public RestResponse updata(SysMenu sysMenu) {
-        return RestResponse.ok(sysMenuMapper.updateById(sysMenu));
+    public void updata(SysMenu sysMenu) {
+        sysMenuMapper.updateById(sysMenu);
     }
 
     @Override
-    public RestResponse delete(String id) {
-        return RestResponse.ok(sysMenuMapper.deleteById(id));
+    public void delete(String id) {
+        sysMenuMapper.deleteById(id);
     }
 }

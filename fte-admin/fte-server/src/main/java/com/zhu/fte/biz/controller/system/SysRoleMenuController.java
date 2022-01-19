@@ -31,24 +31,27 @@ public class SysRoleMenuController {
 
     @PostMapping("/add")
     public RestResponse add(SysRoleMenu sysRoleMenu){
-        return sysRoleMenuService.add(sysRoleMenu) ;
+        sysRoleMenuService.add(sysRoleMenu);
+        return RestResponse.success(true);
     }
 
 
     @PostMapping("/updata")
     public RestResponse updata(SysRoleMenu sysRoleMenu){
-        return sysRoleMenuService.updata(sysRoleMenu) ;
+        sysRoleMenuService.updata(sysRoleMenu);
+        return RestResponse.success(true);
     }
 
     @PostMapping("/delete")
     public RestResponse delete( String id){
-        return sysRoleMenuService.delete(id) ;
+        sysRoleMenuService.delete(id) ;
+        return RestResponse.success(true);
     }
 
 
     @GetMapping("/list")
     public RestResponse<List<SysRoleMenu>> list(){
-        return sysRoleMenuService.getList() ;
+        return RestResponse.success(sysRoleMenuService.getList());
     }
 
 }

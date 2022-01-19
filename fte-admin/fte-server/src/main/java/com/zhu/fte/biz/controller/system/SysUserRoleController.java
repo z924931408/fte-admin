@@ -31,24 +31,28 @@ public class SysUserRoleController {
 
     @PostMapping("/add")
     public RestResponse add(SysUserRole sysUserRole){
-        return sysUserRoleService.add(sysUserRole) ;
+        sysUserRoleService.add(sysUserRole);
+        return RestResponse.success(true);
     }
 
 
     @PostMapping("/updata")
     public RestResponse updata(SysUserRole sysUserRole){
-        return sysUserRoleService.updata(sysUserRole) ;
+        sysUserRoleService.updata(sysUserRole);
+        return RestResponse.success(true);
     }
 
     @PostMapping("/delete")
     public RestResponse delete( String id){
-        return sysUserRoleService.delete(id) ;
+
+        sysUserRoleService.delete(id);
+        return RestResponse.success(true);
     }
 
 
     @GetMapping("/list")
     public RestResponse<List<SysUserRole>> list(){
-        return sysUserRoleService.getList() ;
+        return RestResponse.success(sysUserRoleService.getList()) ;
     }
 }
 

@@ -33,22 +33,25 @@ public class SysMenuController {
 
     @GetMapping("/list")
     public RestResponse<List<SysMenu>> list(){
-        return RestResponse.ok(sysMenuService.getMenus()) ;
+        return RestResponse.success(sysMenuService.getMenus()) ;
     }
 
     @PostMapping("/add")
     public RestResponse add(SysMenu sysMenu){
-        return sysMenuService.add(sysMenu) ;
+        sysMenuService.add(sysMenu);
+        return RestResponse.success(true) ;
     }
 
     @PostMapping("/updata")
     public RestResponse updata(SysMenu sysMenu){
-        return sysMenuService.updata(sysMenu) ;
+        sysMenuService.updata(sysMenu);
+        return RestResponse.success(true) ;
     }
 
     @PostMapping("/delete")
     public RestResponse delete(String id){
-        return sysMenuService.delete(id) ;
+        sysMenuService.delete(id);
+        return RestResponse.success(true) ;
     }
 
 }

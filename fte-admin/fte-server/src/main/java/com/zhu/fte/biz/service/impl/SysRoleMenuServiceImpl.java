@@ -25,22 +25,22 @@ public class SysRoleMenuServiceImpl extends ServiceImpl<SysRoleMenuMapper, SysRo
     private SysRoleMenuMapper sysRoleMenuMapper;
 
     @Override
-    public RestResponse add(SysRoleMenu sysRoleMenu) {
-        return RestResponse.ok(sysRoleMenuMapper.insert(sysRoleMenu));
+    public void add(SysRoleMenu sysRoleMenu) {
+         sysRoleMenuMapper.insert(sysRoleMenu);
     }
 
     @Override
-    public RestResponse updata(SysRoleMenu sysRoleMenu) {
-        return RestResponse.ok(sysRoleMenuMapper.updateById(sysRoleMenu));
+    public void updata(SysRoleMenu sysRoleMenu) {
+        sysRoleMenuMapper.updateById(sysRoleMenu);
     }
 
     @Override
-    public RestResponse delete(String id) {
-        return RestResponse.ok(sysRoleMenuMapper.deleteById(id));
+    public void delete(String id) {
+        sysRoleMenuMapper.deleteById(id);
     }
 
     @Override
-    public RestResponse<List<SysRoleMenu>> getList() {
-        return RestResponse.ok(sysRoleMenuMapper.selectList(null));
+    public List<SysRoleMenu> getList() {
+        return sysRoleMenuMapper.selectList(null);
     }
 }

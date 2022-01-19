@@ -33,24 +33,27 @@ public class SysUserController {
 
     @GetMapping("/list")
     public  RestResponse<List<SysUser>> getUserList(HttpServletRequest request){
-        return  RestResponse.ok(sysUserService.getUserList(request)) ;
+        return  RestResponse.success(sysUserService.getUserList(request)) ;
     }
 
     @PostMapping("/add")
     public RestResponse add( @Valid SysUser sysUser, BindingResult result){
         ValiParamUtils.ValiParamReq(result);
-        return sysUserService.add(sysUser);
+        sysUserService.add(sysUser);
+        return RestResponse.success(true);
     }
 
     @PostMapping("/delete")
     public RestResponse delete(int id){
-        return sysUserService.delete(id);
+        sysUserService.delete(id);
+        return RestResponse.success(true);
     }
 
     @PostMapping("/edit")
     public RestResponse edit(@Valid SysUser sysUser, BindingResult result){
         ValiParamUtils.ValiParamReq(result);
-        return sysUserService.edit(sysUser);
+        sysUserService.edit(sysUser);
+        return RestResponse.success(true);
     }
 
 }

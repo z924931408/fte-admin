@@ -38,19 +38,19 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     }
 
     @Override
-    public RestResponse add(SysRole sysRole) {
-            return RestResponse.ok(sysRoleMapper.insert(sysRole));
+    public void add(SysRole sysRole) {
+            sysRoleMapper.insert(sysRole);
     }
 
     @Override
-    public RestResponse edit(SysRole sysRole) {
-        return RestResponse.ok( sysRoleMapper.updateById(sysRole));
+    public void edit(SysRole sysRole) {
+        sysRoleMapper.updateById(sysRole);
     }
 
     @Override
-    public RestResponse delete(int id){
+    public void delete(int id){
         sysUserRoleMapper.delete(new QueryWrapper<SysUserRole>().lambda().eq(SysUserRole::getRoleId,id));
-        return RestResponse.ok(sysRoleMapper.deleteById(id));
+        sysRoleMapper.deleteById(id);
     }
 
 

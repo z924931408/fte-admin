@@ -25,22 +25,23 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
     SysUserRoleMapper sysUserRoleMapper;
 
     @Override
-    public RestResponse add(SysUserRole sysUserRole) {
-        return RestResponse.ok( sysUserRoleMapper.insert(sysUserRole));
+    public void add(SysUserRole sysUserRole) {
+        sysUserRoleMapper.insert(sysUserRole);
+
     }
 
     @Override
-    public RestResponse updata(SysUserRole sysUserRole) {
-        return RestResponse.ok(sysUserRoleMapper.updateById(sysUserRole));
+    public void updata(SysUserRole sysUserRole) {
+        sysUserRoleMapper.updateById(sysUserRole);
     }
 
     @Override
-    public RestResponse delete(String id) {
-        return RestResponse.ok(sysUserRoleMapper.deleteById(id));
+    public void delete(String id) {
+        sysUserRoleMapper.deleteById(id);
     }
 
     @Override
-    public RestResponse<List<SysUserRole>> getList() {
-        return RestResponse.ok(sysUserRoleMapper.selectList(null));
+    public List<SysUserRole> getList() {
+        return sysUserRoleMapper.selectList(null);
     }
 }

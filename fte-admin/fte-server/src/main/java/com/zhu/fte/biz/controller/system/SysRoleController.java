@@ -30,31 +30,35 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/sysRole")
-public class SysRoleController {
+public class SysRoleController  {
 
     @Resource
     SysRoleService sysRoleService;
 
     @GetMapping("/list")
     public RestResponse<List<SysRole>> getUserList(HttpServletRequest request){
-        return  RestResponse.ok(sysRoleService.getUserList(request)) ;
+        return  RestResponse.success(sysRoleService.getUserList(request)) ;
     }
 
     @PostMapping("/add")
     public RestResponse add(@Valid SysRole sysRole, BindingResult result){
         ValiParamUtils.ValiParamReq(result);
-        return sysRoleService.add(sysRole);
+
+        sysRoleService.add(sysRole);
+        return RestResponse.success(true);
     }
 
     @PostMapping("/delete")
     public RestResponse delete(int id){
-        return sysRoleService.delete(id);
+        sysRoleService.delete(id);
+        return RestResponse.success(true);
     }
 
     @PostMapping("/edit")
     public RestResponse edit(@Valid SysRole SysRole, BindingResult result){
         ValiParamUtils.ValiParamReq(result);
-        return sysRoleService.edit(SysRole);
+        sysRoleService.edit(SysRole);
+        return RestResponse.success(true);
     }
 
 }

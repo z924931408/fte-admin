@@ -2,6 +2,7 @@ package com.zhu.fte.biz.controller.system;
 
 import com.zhu.fte.biz.common.http.RestResponse;
 import com.zhu.fte.biz.common.req.LoginReq;
+import com.zhu.fte.biz.security.JwtAuthToken;
 import com.zhu.fte.biz.service.SysUserService;
 import com.zhu.fte.biz.util.ValiParamUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -30,8 +31,8 @@ public class LoginController {
     private SysUserService sysUserService;
 
     @PostMapping("/login")
-    public RestResponse login( @Validated LoginReq req, BindingResult result, HttpServletRequest request){
+    public RestResponse<JwtAuthToken> login(@Validated LoginReq req, BindingResult result, HttpServletRequest request){
         ValiParamUtils.ValiParamReq(result);
-        return  sysUserService.login(req,request);
+        return  RestResponse.success(sysUserService.login(req,request));
     }
 }
