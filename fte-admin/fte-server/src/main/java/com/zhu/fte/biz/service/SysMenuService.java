@@ -19,11 +19,11 @@ public interface SysMenuService extends IService<SysMenu> {
 
     List<SysMenu> getMenus();
 
-    RestResponse add(SysMenu sysMenu);
+    void add(SysMenu sysMenu);
 
-    RestResponse updata(SysMenu sysMenu);
+    void updata(SysMenu sysMenu);
 
-    RestResponse delete(String id);
+    void delete(String id);
 
 
 }

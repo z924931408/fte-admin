@@ -4,6 +4,7 @@ import com.zhu.fte.biz.common.http.RestResponse;
 import com.zhu.fte.biz.common.req.LoginReq;
 import com.zhu.fte.biz.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zhu.fte.biz.security.JwtAuthToken;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -29,19 +30,19 @@ public interface SysUserService extends IService<SysUser> {
      * @param request
      * @return
      */
-    RestResponse login(LoginReq req, HttpServletRequest request);
+    JwtAuthToken login(LoginReq req, HttpServletRequest request);
 
 
     List<SysUser> getUserList(HttpServletRequest request);
 
 
 
-    RestResponse add(SysUser sysUser);
+    void add(SysUser sysUser);
 
-    RestResponse edit(SysUser sysUser);
+    void edit(SysUser sysUser);
 
 
-    RestResponse delete(int id);
+    void delete(int id);
 
 
 

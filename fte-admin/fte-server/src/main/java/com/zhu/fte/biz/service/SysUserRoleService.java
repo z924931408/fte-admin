@@ -17,13 +17,13 @@ import java.util.List;
  */
 public interface SysUserRoleService extends IService<SysUserRole> {
 
-    RestResponse add(SysUserRole sysUserRole);
+    void add(SysUserRole sysUserRole);
 
-    RestResponse updata(SysUserRole sysUserRole);
+    void updata(SysUserRole sysUserRole);
 
-    RestResponse delete(String id);
+    void delete(String id);
 
 
-    RestResponse<List<SysUserRole>> getList();
+    List<SysUserRole> getList();
 
 }

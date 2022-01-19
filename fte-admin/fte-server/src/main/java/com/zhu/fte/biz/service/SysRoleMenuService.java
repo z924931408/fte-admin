@@ -17,14 +17,14 @@ import java.util.List;
 public interface SysRoleMenuService extends IService<SysRoleMenu> {
 
 
-    RestResponse add(SysRoleMenu sysRoleMenu);
+    void add(SysRoleMenu sysRoleMenu);
 
-    RestResponse updata(SysRoleMenu sysRoleMenu);
+    void updata(SysRoleMenu sysRoleMenu);
 
-    RestResponse delete(String id);
+    void delete(String id);
 
 
-    RestResponse<List<SysRoleMenu>> getList();
+    List<SysRoleMenu> getList();
 
 
 }

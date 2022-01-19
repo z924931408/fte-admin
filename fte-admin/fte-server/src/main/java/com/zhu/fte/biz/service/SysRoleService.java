@@ -22,10 +22,10 @@ public interface SysRoleService extends IService<SysRole> {
 
 
 
-    RestResponse add(SysRole sysRole);
+    void add(SysRole sysRole);
 
-    RestResponse edit(SysRole sysRole);
+    void edit(SysRole sysRole);
 
 
-    RestResponse delete(int id);
+    void delete(int id);
 }
